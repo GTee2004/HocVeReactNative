@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Alert, Button, FlatList, Keyboard, Pressable,
+   ScrollView, StyleSheet, Text, TextInput,
+    TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 
 interface ITodo {
   id: number;
@@ -17,7 +19,22 @@ export default function App() {
   }
 
   const handleAddTodo = () => {
-    if(!todo) return;
+    if(!todo) {
+      Alert.alert("Lỗi input Todo", "Todo không được để trống",
+        [
+          // {
+          //   text: 'Cancel',
+          //   onPress: () => console.log('Cancel Pressed'),
+          //   style: 'cancel',
+          // },
+          {
+            text: 'Xác nhận',
+            onPress: () => console.log('OK Pressed'),
+          }
+        ]
+      )
+      return;
+    }
     setListTodo(
     [...listTodo, 
       {id: randomInteger(2, 2000000), name: todo}
@@ -31,7 +48,8 @@ export default function App() {
   }
   // jsx
   return (
-    <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
       {/* header */}
       <Text style={styles.header}>ToDo APP</Text>
 
@@ -46,7 +64,7 @@ export default function App() {
         title='Add todo'/>
         
       </View>
-
+ 
       {/* list todo */}
       <View style={styles.body}>
         <FlatList
@@ -66,6 +84,8 @@ export default function App() {
       </View>
 
     </View>
+    </TouchableWithoutFeedback>
+    
   );
 }
 
