@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, Pressable, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface ITodo {
   id: number;
@@ -24,6 +24,11 @@ export default function App() {
     ]);
     setTodo("")  
   }
+
+  const deleteTodo = (id: number) => {
+    const newTodos = listTodo.filter(item => item.id !== id)
+    setListTodo(newTodos)
+  }
   // jsx
   return (
     <View style={styles.container}>
@@ -46,14 +51,18 @@ export default function App() {
       <View style={styles.body}>
         <FlatList
         data = {listTodo}
+        keyExtractor={item => item.id + ""}
         renderItem={({item}) => {
           return(
-            <Text style={styles.todoItem}>{item.name}</Text>
+            <Pressable
+            style={(({pressed}) => ({opacity: pressed ? 0.5 : 1}))}
+            onPress={() => deleteTodo(item.id)}>
+              <Text style={styles.todoItem}>{item.name}</Text>
+            </Pressable>
           )
         }}
         />
-        {/* <Text>
-        {JSON.stringify(listTodo)}</Text> */}
+
       </View>
 
     </View>
