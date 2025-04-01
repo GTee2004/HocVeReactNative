@@ -11,7 +11,7 @@ const DetailScreen = () => {
 const styles = StyleSheet.create({
     review: {
         fontSize: 30,
-        fontFamily: 'OpenSans-Regular',
+        fontFamily :  OPENSANS_REGULAR
     }
 })
 
