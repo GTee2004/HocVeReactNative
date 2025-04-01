@@ -1,19 +1,18 @@
-import {StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native"
+import { globalStyles } from "../../utils/const";
 
+const styles = StyleSheet.create({
+    about: {
+        fontSize: 30
+    }
+})
 const AboutScreen = () => {
-    return(
-        <View style={styles.container}>
-            <Text>About google</Text>
+    return (
+        <View>
+            <Text style={[styles.about, globalStyles.globalFont]}> about screen google</Text>
         </View>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 40,
-        borderWidth: 1,
-        borderColor: "red"
-    }
-})
 
 export default AboutScreen;

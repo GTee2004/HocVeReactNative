@@ -1,9 +1,9 @@
-import  {  StyleSheet  }  from  "react-native" ;
+import { StyleSheet } from "react-native";
 
-export  const  OPENSANS_REGULAR  =  'OpenSans-Regular';
+export const OPENSANS_REGULAR = "OpenSans-Regular";
 
-export  const  globalStyles  =  StyleSheet . create ({
-    globalFont :  {
-        fontFamily :  OPENSANS_REGULAR
+export const globalStyles = StyleSheet.create({
+    globalFont: {
+        fontFamily: OPENSANS_REGULAR
     }
 })

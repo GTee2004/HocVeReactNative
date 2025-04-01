@@ -1,19 +1,14 @@
-import {StyleSheet, View, Text } from "react-native";
+import { Button, Text, View } from "react-native"
 
 const HomeScreen = () => {
-    return(
-        <View style={styles.container}>
-            <Text>Home</Text>
+    return (
+        <View>
+            <Text style={{ fontSize: 40 }}>hoidanit Home screen</Text>
+            <Button title="View Detail"
+                onPress={() => alert("me")}
+            />
         </View>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        marginTop: 40,
-        borderWidth: 1,
-        borderColor: "red"
-    }
-})
 
 export default HomeScreen;
