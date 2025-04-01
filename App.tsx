@@ -27,7 +27,7 @@ const App = () => {
     }
 
 
-    const Stack = createNativeStackNavigator();
+    const Stack = createNativeStackNavigator<RootStackParamList>();
 
     return (
         <NavigationContainer>

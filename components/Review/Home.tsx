@@ -1,12 +1,13 @@
 import { Button, Text, View } from "react-native"
 
-const HomeScreen = () => {
+const HomeScreen = (props: any) => {
+    const { navigation } = props;
+    console.log(">>> check props: ", props);
     return (
         <View>
             <Text style={{ fontSize: 40 }}>hoidanit Home screen</Text>
             <Button title="View Detail"
-                onPress={() => alert("me")}
-            />
+                onPress={() => navigation.navigate("review-detail")} />
         </View>
     )
 }
